@@ -205,3 +205,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# 资料忽略
+UI/
+yolo/
+蓝色星原旅谣脚本资料/
+游戏实际记录/
