@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{plugin_title}} - 功能列表</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- 标题区：核心基础组件保留，嵌入素材(1).png作为标题星标图标 + (2).png作为蓝色特效装饰 -->
+        <!-- 占位符用途：{{plugin_title}} 为插件完整名称（后端动态拼接）；{{plugin_sub}} 为副标题/版本标识 -->
+        <header class="header-section">
+            <div class="header-content">
+                <img src="(1).png" alt="星标图标" class="title-icon">
+                <div class="title-text-group">
+                    <h1 class="plugin-title">{{plugin_title}}</h1>
+                    <p class="plugin-sub">{{plugin_sub}}</p>
+                </div>
+                <img src="(2).png" alt="蓝色星光特效" class="sparkle-icon">
+            </div>
+        </header>
+
+        <!-- 辅助信息区：核心基础组件保留，嵌入素材(1).webp作为官方Logo展示区 -->
+        <!-- 占位符用途：无文本占位（纯图片区），后端可动态替换src为最新Logo版本；风格参考图的蓝白幻想色调已通过CSS颜色拟态体现 -->
+        <div class="hero-banner">
+            <img src="(1).webp" alt="蓝色星原 Logo" class="hero-logo">
+        </div>
+
+        <!-- 主体内容区：核心基础组件保留（module-group + grid-container），所有文本均使用占位符 -->
+        <!-- 占位符用途说明：所有{{xxx_title}}、{{xxx_cmd}}、{{xxx_desc}}均为后端动态拼接内容，便于统一管理功能列表 -->
+        <!-- 图标占位符：.icon-placeholder 可由后端替换为 <img src="{{cmd_icon_url}}" class="function-icon"> 以嵌入具体功能图标 -->
+        <!-- 风格拟态：模块标题背景、卡片背景、文字颜色均参考“风格参考图.png”的蓝紫白幻想色调（柔和蓝调+晶莹光感） -->
+        <div class="content-section">
+
+            <!-- 图鉴模块 -->
+            <section class="module-group">
+                <h2 class="module-header">{{atlas_title}}</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">{{atlas_role_cmd}}</div>
+                            <div class="cmd-desc">{{atlas_role_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">{{atlas_qibo_cmd}}</div>
+                            <div class="cmd-desc">{{atlas_qibo_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">{{atlas_suit_cmd}}</div>
+                            <div class="cmd-desc">{{atlas_suit_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">{{atlas_equip_cmd}}</div>
+                            <div class="cmd-desc">{{atlas_equip_desc}}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 角色模块 -->
+            <section class="module-group">
+                <h2 class="module-header">{{character_title}}</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">{{character_skill_cmd}}</div>
+                            <div class="cmd-desc">{{character_skill_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">{{character_gift_cmd}}</div>
+                            <div class="cmd-desc">{{character_gift_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">{{character_tune_cmd}}</div>
+                            <div class="cmd-desc">{{character_tune_desc}}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 群管理模块（管理员权限） -->
+            <section class="module-group">
+                <h2 class="module-header">{{admin_title}}</h2>
+                <div class="grid-container">
+                    <div class="card admin-bg">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">{{admin_check_cmd}}</div>
+                            <div class="cmd-desc">{{admin_check_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="card admin-bg">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">{{admin_kick_cmd}}</div>
+                            <div class="cmd-desc">{{admin_kick_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="card admin-bg">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">{{admin_ban_cmd}}</div>
+                            <div class="cmd-desc">{{admin_ban_desc}}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- 页脚区：核心基础组件保留 -->
+        <!-- 占位符用途：{{footer_text}} 为页脚自定义文本（版权、版本、联系方式等），后端动态拼接 -->
+        <footer class="footer-section">
+            {{footer_text}}
+        </footer>
+    </div>
+</body>
+
+</html>

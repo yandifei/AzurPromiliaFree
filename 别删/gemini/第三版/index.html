@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蓝色星原旅谣插件 - 拟态版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="bg-layer" style="background-image: url('风格参考图.jpg');"></div>
+
+    <div class="main-container">
+        <header class="header-section">
+            <div class="logo-box">
+                <img src="(1).webp" alt="logo" class="plugin-logo">
+            </div>
+            <div class="title-text">
+                <h1 class="plugin-title">{{main_title}}</h1>
+                <p class="plugin-sub">{{sub_title}}</p>
+            </div>
+        </header>
+
+        <div class="hero-banner">
+            <div class="hero-placeholder">
+                <span class="star-deco">✦</span>
+                {{hero_message}}
+                <span class="star-deco">✦</span>
+            </div>
+        </div>
+
+        <main class="content-section">
+
+            {{#each modules}}
+            <section class="module-group">
+                <h2 class="module-header">
+                    <img src="(1).png" class="header-icon"> {{module_name}}
+                </h2>
+                <div class="grid-container">
+
+                    {{#each items}}
+                    <div class="card {{#if is_admin}}admin-bg{{/if}}">
+                        <div class="icon-wrapper">
+                            <img src="(2).png" class="item-star">
+                        </div>
+                        <div class="text-area">
+                            <div class="cmd-name">{{cmd_prefix}}{{cmd_name}}</div>
+                            <div class="cmd-desc">{{cmd_desc}}</div>
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </section>
+            {{/each}}
+
+        </main>
+
+        <footer class="footer-section">
+            <p>{{footer_text}}</p>
+            <p class="version">Version {{version_code}}</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

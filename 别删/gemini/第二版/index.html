@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蓝色星原旅谣插件 - 功能列表</title>
+    <style>
+        /* --- 核心变量定义 --- */
+        :root {
+            --bg-glass: rgba(255, 255, 255, 0.65);
+            /* 半透明白 */
+            --bg-accent: rgba(180, 220, 240, 0.4);
+            /* 拟态冰蓝色 */
+            --text-main: #4a5d6a;
+            /* 深灰蓝，比纯黑更柔和 */
+            --accent-glow: 0 8px 32px 0 rgba(135, 206, 235, 0.3);
+            /* 蓝色阴影 */
+            --border-light: rgba(255, 255, 255, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            /* 模拟核心图片背景：随机奇波或渐变 */
+            background: linear-gradient(135deg, #e0f2f1 0%, #fce4ec 100%);
+            background-image: url('{{background_image_url}}');
+            /* 后端动态替换背景图 */
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+            color: var(--text-main);
+        }
+
+        /* --- 核心容器 (固定 830px) --- */
+        .main-container {
+            width: 830px;
+            background: var(--bg-glass);
+            backdrop-filter: blur(12px);
+            /* 拟态毛玻璃核心 */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            box-shadow: var(--accent-glow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- 1. 标题区 --- */
+        .header-section {
+            position: relative;
+            padding: 40px 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .title-group {
+            z-index: 2;
+        }
+
+        .plugin-title {
+            font-size: 46px;
+            font-weight: 900;
+            font-style: italic;
+            background: linear-gradient(to bottom, #333, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .plugin-sub {
+            font-size: 20px;
+            color: #7a8c99;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 装饰用星形图标 */
+        .plugin-sub::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: url('(2).png') no-repeat center/contain;
+            margin-right: 8px;
+        }
+
+        .logo-placeholder {
+            height: 70px;
+            width: 150px;
+            background: url('(1).webp') no-repeat right center/contain;
+        }
+
+        /* --- 2. 辅助信息区 (Hero Banner) --- */
+        .hero-banner {
+            width: 100%;
+            height: 180px;
+            background: url('gemini/第二版/1.png') no-repeat center 20%/cover;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px 50px;
+        }
+
+        /* Banner上的浮动装饰 */
+        .hero-banner::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, var(--bg-glass), transparent);
+        }
+
+        /* --- 3. 主体内容区 --- */
+        .content-section {
+            padding: 25px 40px;
+        }
+
+        .module-group {
+            margin-bottom: 25px;
+        }
+
+        /* 拟态标题长条 */
+        .module-header {
+            background: rgba(56, 56, 56, 0.85);
+            color: #fff;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 10px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 功能网格 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .admin-bg {
+            background: var(--bg-accent);
+            /* 蓝色拟态强调 */
+        }
+
+        .icon-placeholder {
+            width: 48px;
+            height: 48px;
+            margin-right: 15px;
+            background: url('(1).png') no-repeat center/80%;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .text-area {
+            overflow: hidden;
+        }
+
+        .cmd-name {
+            font-size: 17px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .cmd-desc {
+            font-size: 12px;
+            color: #8fa0ab;
+            margin-top: 4px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        /* --- 4. 页脚区 --- */
+        .footer-section {
+            padding: 25px;
+            text-align: center;
+            font-size: 13px;
+            color: #8fa0ab;
+            border-top: 1px solid var(--border-light);
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <header class="header-section">
+            <div class="title-group">
+                <h1 class="plugin-title">蓝色星原旅谣插件</h1>
+                <p class="plugin-sub">yoyo-plugin</p>
+            </div>
+            <div class="logo-placeholder"></div>
+        </header>
+
+        <section class="hero-banner">
+        </section>
+
+        <div class="content-section">
+
+            <section class="module-group">
+                <h2 class="module-header">图鉴</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~角色图鉴</div>
+                            <div class="cmd-desc">查询所有星灵角色信息</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~奇波图鉴</div>
+                            <div class="cmd-desc">查看大世界奇波分布</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~套装图鉴</div>
+                            <div class="cmd-desc">查看遗物/套装属性</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="module-group">
+                <h2 class="module-header">角色</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~技能查询</div>
+                            <div class="cmd-desc">输入名字查看技能数值</div>
+                        </div>
+                    </div>
+                    <div class="card admin-bg">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~群管配置</div>
+                            <div class="cmd-desc">仅管理员可见的设置项</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer-section">
+            {{footer_text}}
+        </footer>
+    </div>
+
+</body>
+
+</html>

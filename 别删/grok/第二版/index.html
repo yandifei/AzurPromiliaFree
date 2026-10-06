@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{plugin_name}} - 功能列表</title>
+
+    <!-- Tailwind CDN（用于极简网格/弹性布局框架，后续可替换为纯CSS） -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 外部样式文件 -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page-background bg-gray-50 py-8">
+    <!-- 主容器 - 固定宽度830px -->
+    <div class="container">
+
+        <!-- ==================== 标题区 ==================== -->
+        <header class="title-area">
+            <!-- 插件Logo（占位） -->
+            <div class="logo-wrapper">
+                <span class="text-3xl">🌟</span>
+            </div>
+
+            <div class="title-text">
+                <h1 class="text-3xl font-semibold tracking-tighter">
+                    {{plugin_name}}
+                </h1>
+                <p class="subtitle">
+                    {{plugin_subtitle}}
+                </p>
+            </div>
+
+            <!-- 标题区右侧辅助信息 -->
+            <div class="title-right">
+                <div class="status-badge">
+                    <div class="status-dot"></div>
+                    已就绪
+                </div>
+                <p class="version-info">v{{version}} • {{current_time}}</p>
+            </div>
+        </header>
+
+        <!-- ==================== 辅助信息区 ==================== -->
+        <div class="aux-area">
+            <div class="aux-left">
+                <div class="aux-item">
+                    <span class="font-medium">群组：</span>
+                    <span class="group-name">{{current_group_name}}</span>
+                </div>
+
+                <div class="aux-item">
+                    <span class="font-medium">权限：</span>
+                    <span class="permission-badge">{{user_permission}}</span>
+                </div>
+
+                <div class="aux-item">
+                    <span class="font-medium">指令前缀：</span>
+                    <span class="command-prefix">{{command_prefix}}</span>
+                </div>
+            </div>
+
+            <!-- 搜索框占位 -->
+            <div class="search-wrapper">
+                <input type="text" placeholder="{{search_placeholder}}" class="search-input">
+                <div class="search-hint">⌘K</div>
+            </div>
+        </div>
+
+        <!-- ==================== 主体内容区 ==================== -->
+        <main class="main-content">
+
+            <!-- 图鉴 Section -->
+            <section class="section">
+                <div class="section-header">
+                    <span>{{atlas_section_title}}</span>
+                    <span class="count-badge">共{{atlas_total_count}}项</span>
+                </div>
+                <div class="card-grid">
+                    <!-- 图鉴1 -->
+                    <div class="function-card" data-command="~角色图鉴">
+                        <img src="{{atlas_role_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{atlas_role_label}}</div>
+                            <div class="card-desc">{{atlas_role_desc}}</div>
+                        </div>
+                    </div>
+                    <!-- 图鉴2 -->
+                    <div class="function-card" data-command="~奇波图鉴">
+                        <img src="{{atlas_qibo_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{atlas_qibo_label}}</div>
+                            <div class="card-desc">{{atlas_qibo_desc}}</div>
+                        </div>
+                    </div>
+                    <!-- 图鉴3 -->
+                    <div class="function-card" data-command="~套装图鉴">
+                        <img src="{{atlas_suit_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{atlas_suit_label}}</div>
+                            <div class="card-desc">{{atlas_suit_desc}}</div>
+                        </div>
+                    </div>
+                    <!-- 图鉴4 -->
+                    <div class="function-card col-span-3 md:col-span-1" data-command="~装备图鉴">
+                        <img src="{{atlas_equip_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{atlas_equip_label}}</div>
+                            <div class="card-desc">{{atlas_equip_desc}}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 角色 Section -->
+            <section class="section">
+                <div class="section-header">
+                    <span>{{role_section_title}}</span>
+                    <span class="count-badge">共{{role_total_count}}项</span>
+                </div>
+                <div class="card-grid">
+                    <!-- 以下12个角色功能卡片全部使用占位符，后端可动态增删 -->
+                    <div class="function-card" data-command="~寒悠悠技能">
+                        <img src="{{role_skill_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_skill_label}}</div>
+                            <div class="card-desc">{{role_skill_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~寒悠悠星赐">
+                        <img src="{{role_star_gift_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_star_gift_label}}</div>
+                            <div class="card-desc">{{role_star_gift_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~寒悠悠定弦">
+                        <img src="{{role_string_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_string_label}}</div>
+                            <div class="card-desc">{{role_string_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~寒悠悠语音">
+                        <img src="{{role_voice_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_voice_label}}</div>
+                            <div class="card-desc">{{role_voice_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~寒悠悠攻略">
+                        <img src="{{role_strategy_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_strategy_label}}</div>
+                            <div class="card-desc">{{role_strategy_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~寒悠悠图片">
+                        <img src="{{role_image_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_image_label}}</div>
+                            <div class="card-desc">{{role_image_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~上传寒悠悠图片">
+                        <img src="{{role_upload_image_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_upload_image_label}}</div>
+                            <div class="card-desc">{{role_upload_image_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~寒悠悠图片列表">
+                        <img src="{{role_image_list_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_image_list_label}}</div>
+                            <div class="card-desc">{{role_image_list_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~删除寒悠悠图片2">
+                        <img src="{{role_delete_image_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_delete_image_label}}</div>
+                            <div class="card-desc">{{role_delete_image_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~原图(引用)">
+                        <img src="{{role_original_image_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_original_image_label}}</div>
+                            <div class="card-desc">{{role_original_image_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~寒悠悠设置别名XXX">
+                        <img src="{{role_set_alias_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_set_alias_label}}</div>
+                            <div class="card-desc">{{role_set_alias_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~寒悠悠删除别名XXX">
+                        <img src="{{role_delete_alias_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{role_delete_alias_label}}</div>
+                            <div class="card-desc">{{role_delete_alias_desc}}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 工具 Section -->
+            <section class="section">
+                <div class="section-header">
+                    <span>{{tools_section_title}}</span>
+                </div>
+                <div class="card-grid">
+                    <div class="function-card" data-command="~数据">
+                        <img src="{{tools_data_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{tools_data_label}}</div>
+                            <div class="card-desc">{{tools_data_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~公告">
+                        <img src="{{tools_announce_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{tools_announce_label}}</div>
+                            <div class="card-desc">{{tools_announce_desc}}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 娱乐 Section -->
+            <section class="section">
+                <div class="section-header">
+                    <span>{{entertainment_section_title}}</span>
+                </div>
+                <div class="card-grid">
+                    <div class="function-card" data-command="~签到">
+                        <img src="{{ent_sign_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{ent_sign_label}}</div>
+                            <div class="card-desc">{{ent_sign_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~你是什么猪">
+                        <img src="{{ent_pig_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{ent_pig_label}}</div>
+                            <div class="card-desc">{{ent_pig_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~表情列表">
+                        <img src="{{ent_emoji_list_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{ent_emoji_list_label}}</div>
+                            <div class="card-desc">{{ent_emoji_list_desc}}</div>
+                        </div>
+                    </div>
+
+                    <!-- YoAI 特殊卡片 -->
+                    <div class="function-card yoai-card col-span-3" data-command="YoAI">
+                        <img src="{{yoai_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="yoai-title">{{yoai_label}}</div>
+                            <div class="yoai-desc">{{yoai_desc}}</div>
+                        </div>
+                        <div class="yoai-emoji">🤖</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 群管理 Section -->
+            <section class="section">
+                <div class="section-header admin-header">
+                    <span>{{group_mgmt_section_title}}</span>
+                    <span class="admin-badge">需要管理员权限</span>
+                </div>
+                <div class="card-grid">
+                    <div class="function-card" data-command="~查看审核词">
+                        <img src="{{gm_view_audit_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{gm_view_audit_label}}</div>
+                            <div class="card-desc">{{gm_view_audit_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~设置审核词+审核词">
+                        <img src="{{gm_set_audit_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{gm_set_audit_label}}</div>
+                            <div class="card-desc">{{gm_set_audit_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~新增审核词+审核词">
+                        <img src="{{gm_add_audit_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{gm_add_audit_label}}</div>
+                            <div class="card-desc">{{gm_add_audit_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~删除审核词+审核词">
+                        <img src="{{gm_delete_audit_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{gm_delete_audit_label}}</div>
+                            <div class="card-desc">{{gm_delete_audit_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~踢|踢黑+@用户">
+                        <img src="{{gm_kick_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{gm_kick_label}}</div>
+                            <div class="card-desc">{{gm_kick_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~禁|撤+@用户">
+                        <img src="{{gm_ban_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{gm_ban_label}}</div>
+                            <div class="card-desc">{{gm_ban_desc}}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 插件管理 Section -->
+            <section class="section">
+                <div class="section-header">
+                    <span>{{plugin_mgmt_section_title}}</span>
+                </div>
+                <div class="card-grid">
+                    <div class="function-card" data-command="~悠悠更新">
+                        <img src="{{pm_update_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{pm_update_label}}</div>
+                            <div class="card-desc">{{pm_update_desc}}</div>
+                        </div>
+                    </div>
+                    <div class="function-card" data-command="~清除无效数据">
+                        <img src="{{pm_clean_icon_url}}" alt="" class="card-icon">
+                        <div class="card-content">
+                            <div class="card-title">{{pm_clean_label}}</div>
+                            <div class="card-desc">{{pm_clean_desc}}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ==================== 页脚区 ==================== -->
+        <footer class="footer">
+            <div class="footer-left">
+                <div>{{footer_version_text}}</div>
+                <div class="footer-group">
+                    <span>插件群：</span>
+                    <a href="#" class="group-link">{{footer_group_id}}</a>
+                </div>
+            </div>
+
+            <div class="footer-center">
+                {{footer_ui_note}}
+            </div>
+
+            <div class="footer-right">
+                静态HTML模板 • 仅框架 • 后端拼接模式
+            </div>
+        </footer>
+    </div>
+
+    <!-- 外部JS文件 -->
+    <script src="script.js"></script>
+</body>
+
+</html>

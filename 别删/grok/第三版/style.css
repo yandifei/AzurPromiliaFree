@@ -1,0 +1,136 @@
+/* 基础设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #d1d1d1;
+    /* body背景改为灰色 */
+    font-family: "Microsoft YaHei", sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* 核心布局：830px 固定宽度 */
+.main-container {
+    width: 830px;
+    background-color: #ffffff;
+    /* 容器内部通常为白或透明，靠模块着色 */
+    display: flex;
+    flex-direction: column;
+    /* 若需奇波背景，可在此处添加 background-image */
+}
+
+/* --- 1. 标题区 --- */
+.header-area {
+    padding: 30px 40px;
+}
+
+.main-title {
+    font-size: 38px;
+    font-weight: 900;
+    font-style: italic;
+    color: #444;
+    line-height: 1.1;
+}
+
+.sub-title {
+    font-size: 22px;
+    color: #888;
+    font-style: italic;
+}
+
+/* background-color: transparent; /* 背景完全透明 */
+*/
+
+/* --- 2. 辅助信息区 --- */
+.hero-area {
+    width: 100%;
+    height: 120px;
+    /* 初始留白 */
+    background: #e0e0e0;
+    /* 极简占位色 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- 3. 主体内容区 --- */
+.content-area {
+    padding-bottom: 20px;
+}
+
+/* 模块间隙：关键修改点 */
+.module {
+    margin-bottom: 12px;
+    /* 设置section之间的间隙 */
+}
+
+.module-title {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 8px;
+}
+
+/* 功能网格 */
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background-color: #ddd;
+    /* 网格线颜色 */
+}
+
+.function-item {
+    background-color: #fcfcfc;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    min-height: 80px;
+}
+
+/* 特殊样式占位（如管理员区域） */
+.function-item.admin-bg {
+    background-color: #eeeeee;
+}
+
+.icon-wrapper {
+    width: 45px;
+    height: 45px;
+    margin-right: 12px;
+}
+
+.icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cmd-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+}
+
+.desc-text {
+    font-size: 11px;
+    color: #999;
+    margin-top: 3px;
+}
+
+/* --- 4. 页脚区 --- */
+.footer-area {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+    border-top: 1px solid #eee;
+}

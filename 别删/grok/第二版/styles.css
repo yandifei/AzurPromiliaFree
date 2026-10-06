@@ -1,0 +1,345 @@
+/* ==================== styles.css ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&display=swap');
+
+:root {
+    --tw-color-primary: #3b82f6;
+}
+
+* {
+    font-family: 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+}
+
+/* 主容器 - 固定830px宽度 */
+.container {
+    width: 830px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.1);
+    border: 1px solid #f1f1f1;
+}
+
+/* 标题区 */
+.title-area {
+    background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
+    color: white;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-wrapper {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.title-text {
+    flex: 1;
+}
+
+.title-text h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.subtitle {
+    color: #dbeafe;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.title-right {
+    text-align: right;
+    font-size: 13px;
+}
+
+.status-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 16px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    backdrop-filter: blur(8px);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.version-info {
+    color: #dbeafe;
+    opacity: 0.75;
+    margin-top: 8px;
+}
+
+/* 辅助信息区 */
+.aux-area {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.aux-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.aux-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.group-name {
+    padding: 4px 12px;
+    background: #f3f4f6;
+    border-radius: 9999px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.permission-badge {
+    padding: 4px 12px;
+    background: #10b981;
+    color: white;
+    border-radius: 9999px;
+    font-weight: 500;
+}
+
+.command-prefix {
+    font-family: ui-monospace, monospace;
+    background: #fefce8;
+    color: #854d0e;
+    padding: 2px 10px;
+    border-radius: 9999px;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 280px;
+}
+
+.search-input {
+    width: 100%;
+    background: #f3f4f6;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    padding: 12px 20px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.search-input:focus {
+    background: white;
+    border-color: #93c5fd;
+}
+
+.search-hint {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* 主体内容区 - 极简卡片框架 */
+.main-content {
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.section {
+    background: #f8fafc;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.section-header {
+    background: linear-gradient(90deg, #1f2937, #334155);
+    color: white;
+    padding: 14px 24px;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-header {
+    background: linear-gradient(90deg, #92400e, #b45309);
+}
+
+.count-badge,
+.admin-badge {
+    font-size: 12px;
+    padding: 2px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+}
+
+.card-grid {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.function-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.function-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 10px 10px 20px -8px rgb(0 0 0 / 0.1),
+        -6px -6px 16px 4px rgb(255 255 255 / 0.9);
+}
+
+.card-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-title {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+.card-desc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.4;
+    margin-top: 4px;
+}
+
+.yoai-card {
+    background: linear-gradient(to right, #f3e8ff, #fce7f3);
+    border-color: #c084fc;
+    color: #6b21a8;
+}
+
+.yoai-title {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.yoai-desc {
+    color: #7e22ce;
+    font-size: 13px;
+}
+
+.yoai-emoji {
+    font-size: 42px;
+    align-self: center;
+    margin-left: auto;
+}
+
+/* 页脚区 */
+.footer {
+    background: #111827;
+    color: white;
+    padding: 20px 32px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #334155;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.group-link {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+.footer-center {
+    color: #fbbf24;
+    font-weight: 500;
+}
+
+.footer-right {
+    color: #64748b;
+}
+
+/* 背景（随机奇波背景） - 占位符由后端替换 */
+.page-background {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* 全局拟态卡片微调 */
+.function-card.col-span-3 {
+    grid-column: span 3;
+}
+
+@media (max-width: 860px) {
+    .container {
+        width: 100%;
+        margin: 0 16px;
+    }
+}
+
+/* 占位符使用说明（仅供开发者阅读，不会渲染） */
+/* 
+本CSS仅包含框架基础样式，所有具体UI留白待设计师优化。
+动态背景URL在HTML的body内联style中由后端替换。
+所有卡片均已添加 data-command 属性，方便前端/后端绑定点击事件。
+*/

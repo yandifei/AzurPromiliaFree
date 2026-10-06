@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蓝色星原旅谣插件 - 功能列表</title>
+    <style>
+        /* --- 基础样式控制 --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            background-color: #d1d1d1;
+            /* body背景灰色 */
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        /* 核心容器：固定 830px */
+        .main-container {
+            width: 830px;
+            background-color: transparent;
+            /* 背景透明以显示body灰色或未来加入的奇波背景 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- 1. 标题区 --- */
+        .header-section {
+            padding: 30px 45px;
+            background: #fff;
+            /* 初始为白，可改为半透明 */
+        }
+
+        .plugin-title {
+            font-size: 42px;
+            font-weight: 900;
+            font-style: italic;
+            color: #333;
+            letter-spacing: -1px;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .plugin-sub {
+            font-size: 24px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        /* --- 2. 辅助信息区 --- */
+        .hero-banner {
+            width: 100%;
+            height: 150px;
+            background-color: #e6e6e6;
+            /* 占位色 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid #333;
+            /* 此处可由后端动态替换为奇波背景图 */
+        }
+
+        /* --- 3. 主体内容区 --- */
+        .content-section {
+            margin-top: 10px;
+        }
+
+        /* 分类块之间的间隙 */
+        .module-group {
+            margin-bottom: 15px;
+            background: #fff;
+        }
+
+        /* 黑色长条标题 */
+        .module-header {
+            background-color: #383838;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 20px;
+            letter-spacing: 12px;
+            font-weight: 500;
+        }
+
+        /* 网格容器 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* 默认3列 */
+            gap: 1px;
+            background-color: #cccccc;
+            /* 网格线颜色 */
+        }
+
+        /* 2列布局特殊类 */
+        .grid-2col {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* 1列布局特殊类 */
+        .grid-1col {
+            grid-template-columns: 1fr;
+        }
+
+        /* 功能卡片 */
+        .card {
+            background-color: #fcfcfc;
+            padding: 15px 12px;
+            display: flex;
+            align-items: center;
+            min-height: 85px;
+        }
+
+        /* 管理员区域卡片背景略深 */
+        .admin-bg {
+            background-color: #f2f2f2;
+        }
+
+        .icon-placeholder {
+            width: 45px;
+            height: 45px;
+            margin-right: 12px;
+            background-color: #eee;
+            /* 留白占位，不显示具体图片 */
+        }
+
+        .text-area {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cmd-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .cmd-desc {
+            font-size: 11px;
+            color: #999;
+            margin-top: 4px;
+            white-space: nowrap;
+        }
+
+        /* --- 4. 页脚区 --- */
+        .footer-section {
+            padding: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+            background: #fff;
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <header class="header-section">
+            <h1 class="plugin-title">蓝色星原旅谣插件</h1>
+            <p class="plugin-sub">yoyo-plugin</p>
+        </header>
+
+        <div class="content-section">
+
+            <section class="module-group">
+                <h2 class="module-header">图鉴</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~角色图鉴</div>
+                            <div class="cmd-desc">查询所有角色图鉴</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~奇波图鉴</div>
+                            <div class="cmd-desc">查询所有奇波图鉴</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~套装图鉴</div>
+                            <div class="cmd-desc">查看所有套装</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~装备图鉴</div>
+                            <div class="cmd-desc">查看所有装备</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="module-group">
+                <h2 class="module-header">角色</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~寒悠悠技能</div>
+                            <div class="cmd-desc">查看角色技能</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~寒悠悠星赐</div>
+                            <div class="cmd-desc">查看角色星赐</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~寒悠悠定弦</div>
+                            <div class="cmd-desc">查看角色定弦[未开发]</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="module-group">
+                <h2 class="module-header">群管理 (需要管理员权限)</h2>
+                <div class="grid-container">
+                    <div class="card admin-bg">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~查看审核词</div>
+                            <div class="cmd-desc">机器人审核群问题</div>
+                        </div>
+                    </div>
+                    <div class="card admin-bg">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~踢|踢黑+@用户</div>
+                            <div class="cmd-desc">踢出群成员并撤回其近期所有消息</div>
+                        </div>
+                    </div>
+                    <div class="card admin-bg">
+                        <div class="icon-placeholder"></div>
+                        <div class="text-area">
+                            <div class="cmd-name">~禁|撤+@用户</div>
+                            <div class="cmd-desc">禁止发言/撤回某个用户消息</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="footer-section">
+            {{footer_text}}
+        </footer>
+    </div>
+
+</body>
+
+</html>
